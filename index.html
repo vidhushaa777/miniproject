@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Vintage Treasures</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f1e4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .bg-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+
+        .login-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            box-shadow: 2px 2px 10px gray;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 350px;
+        }
+
+        .login-box h2 {
+            color: #5a4d41;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #a67c52;
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a4d41;
+        }
+
+        /* Custom Alert Box Styling */
+        .alert-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff8e7;
+            padding: 20px;
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .alert-box p {
+            color: #a67c52;
+            font-size: 16px;
+        }
+
+        .alert-box button {
+            background-color: #a67c52;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .alert-box button:hover {
+            background-color: #5a4d41;
+        }
+
+        @media (max-width: 400px) {
+            .login-box {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+ 
+
+    <div class="login-container">
+        <img src="https://static.prinseps.com/media/uploads/photos_2020/antiques_2021.jpg" class="bg-image">
+        <div class="login-box">
+            <h2>Login to Vintage Treasures</h2>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Alert Box -->
+    <div id="customAlert" class="alert-box">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+    
+    <script>
+        let alertCallback = null;
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting by default
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (username === "") {
+                showAlert("⚠️ Username cannot be empty!");
+                return;
+            } else if (username.length < 3) {
+                showAlert("❌ Username must be at least 3 characters!");
+                return;
+            }
+
+            if (password === "") {
+                showAlert("⚠️ Password cannot be empty!");
+                return;
+            } else if (password.length < 4) {
+                showAlert("❌ Password must be at least 4 characters!");
+                return;
+            }
+
+            // If everything is valid
+            showAlert("✅ You have logged in successfully!", function() {
+                window.location.href = "MINIPROJECT.html";
+            });
+        });
+
+        function showAlert(message, callback = null) {
+            document.getElementById("alertMessage").innerHTML = message;
+            document.getElementById("customAlert").style.display = "block";
+            alertCallback = callback;
+        }
+
+        function closeAlert() {
+            document.getElementById("customAlert").style.display = "none";
+            if (alertCallback) {
+                alertCallback();
+                alertCallback = null;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Treasures</title>
+    <style>
+        #music-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+        }
+        .cart-button-container {
+              position: absolute;
+              top: 20px; /* Adjust based on your layout */
+              right: 20px; /* Moves it to the right */
+        }
+
+       .nav-button {
+    background-color: #8b5a2b;
+    color: white;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+       }
+
+      .nav-button:hover {
+    background-color: #6a3f1f;
+      }
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e4;
+            color: #5a4d41;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #a67c52;
+            padding: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px;
+            box-shadow: 2px 2px 10px gray;
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .button {
+            background-color: #a67c52;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #5a4d41;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cart-button-container">
+    <button class="nav-button" onclick="location.href='cart.html'">🛒 View Cart</button>
+</div>
+ 
+<div class="header">Vintage Treasures - Aesthetic Old Products</div>
+       <div class="container" id="products">
+    <div class="product" 
+         data-name="Vintage Clock" 
+         data-price="150" 
+         data-image="https://www.homeartisan.in/cdn/shop/files/HAWC-2305_1_5e9a5a97-61a5-4180-9fe4-878425f1b657.jpg?v=1721646948" 
+         data-description="A beautiful antique clock from the 19th century with intricate carvings and a timeless aesthetic.">
+        <img src="https://www.homeartisan.in/cdn/shop/files/HAWC-2305_1_5e9a5a97-61a5-4180-9fe4-878425f1b657.jpg?v=1721646948" alt="Vintage Clock">
+        <h3>Vintage Clock</h3>
+        <p>Beautiful antique clock from the 19th century.</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Vintage Clock')">❤️ Add to Wishlist</button>
+    </div>
+
+    <div class="product" 
+         data-name="Typewriter" 
+         data-price="2720" 
+         data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB5DicAAV2eK5dVGturfSQerUi1lEYRkEvhw&s" 
+         data-description="A typewriter from 25th century which a soldier typed a letter to his wife on war">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB5DicAAV2eK5dVGturfSQerUi1lEYRkEvhw&s" alt="Classic Typewriter">
+        <h3>Classic Typewriter</h3>
+        <p>Old-school typewriter in perfect working condition.</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Typewriter')">❤️ Add to Wishlist</button>
+
+    </div>
+
+    <div class="product"  
+         data-name="Retro Camera" 
+         data-price="4560" 
+         data-image="https://eazywagon.com/cdn/shop/products/resin-showpiece-vintage-directors-camera-183609_800x.jpg?v=1710004760" 
+         data-description="A retro camera which captures pictures and has antique memories.">
+        <img src="https://eazywagon.com/cdn/shop/products/resin-showpiece-vintage-directors-camera-183609_800x.jpg?v=1710004760" alt="Retro Camera">
+        <h3>Retro Camera</h3>
+        <p>Capture memories with this vintage-style camera.</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Retro Camera')">❤️ Add to Wishlist</button>
+
+    </div>
+
+    <div class="product"
+         data-name="Gramophonea" 
+         data-price="560" 
+         data-image="https://m.media-amazon.com/images/I/71Uupo8U+qL.jpg" 
+         data-description="Listen to all old songs with past memories">
+        <img src="https://m.media-amazon.com/images/I/71Uupo8U+qL.jpg" alt="Gramophone">
+        <h3>Gramophonea</h3>
+        <p>Listen to vintage songs</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Gramophonea')">❤️ Add to Wishlist</button>
+
+    </div>
+
+    <div class="product"
+         data-name="Binoculars" 
+         data-price="560" 
+         data-image="https://content.jdmagicbox.com/rep/b2b/antique/antique-2.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit" 
+         data-description="See things which antique people saw.">
+        <img src="https://content.jdmagicbox.com/rep/b2b/antique/antique-2.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit" alt="Binoculars">
+        <h3>Binoculars</h3>
+        <p>See your future using this vintage binoculars</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Binoculars')">❤️ Add to Wishlist</button>
+
+    </div>
+
+    <div class="product"
+         data-name="Rajasthan Dinning set" 
+         data-price="5000" 
+         data-image="https://saarthionline.com/wp-content/uploads/2023/03/COM12-1-600x600.jpg" 
+         data-description="Witness the traditional way of dining in Rajasthan.">
+        <img src="https://saarthionline.com/wp-content/uploads/2023/03/COM12-1-600x600.jpg" alt="Rajasthan antique product">
+        <h3>Rajasthan antique product</h3>
+        <p>Have unique collection of this Rajasthan dining set</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Rajasthan Dinning set')">❤️ Add to Wishlist</button>
+
+    </div>
+    <div class="product"
+         data-name="Vintage Books" 
+         data-price="2790" 
+         data-image="https://i.etsystatic.com/16895790/r/il/a289d9/4841007885/il_570xN.4841007885_potp.jpg" 
+         data-description="Wanna read old and meaning book abot god and tradition,do check this out">
+        <img src="https://i.etsystatic.com/16895790/r/il/a289d9/4841007885/il_570xN.4841007885_potp.jpg"
+alt="Vintage Books">
+        <h3>Vintage Books</h3>
+        <p>A set of 5 vintage tradional book about god</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Vintage Books')">❤️ Add to Wishlist</button>
+
+    </div>
+    <div class="product"
+         data-name="Kitchen Products" 
+         data-price="3000" 
+         data-image="https://www.shutterstock.com/shutterstock/photos/1629655504/display_1500/stock-photo-set-of-gorgeous-old-vintage-items-old-dishes-appliances-kettles-chairs-books-coffee-grinder-1629655504.jpg" 
+         data-description="Give this to your kids to play">
+        <img src="https://www.shutterstock.com/shutterstock/photos/1629655504/display_1500/stock-photo-set-of-gorgeous-old-vintage-items-old-dishes-appliances-kettles-chairs-books-coffee-grinder-1629655504.jpg"
+alt="Vintage Books">
+        <h3>Kitchen Set</h3>
+        <p>Kitchen with plate,2 spoon, jug, two set of cup</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Kitchen Products')">❤️ Add to Wishlist</button>
+
+    </div>
+    <div class="product"
+         data-name="Home Decor" 
+         data-price="735" 
+         data-image="https://khojcrafts.com/cdn/shop/files/WhatsAppImage2024-07-04at18.07.03_78ef6167_512x512.jpg?v=1720252085" 
+         data-description="Decor to make your house more unique">
+        <img src="https://khojcrafts.com/cdn/shop/files/WhatsAppImage2024-07-04at18.07.03_78ef6167_512x512.jpg?v=1720252085"
+alt="Vintage Books">
+        <h3>Home Decor</h3>
+        <p>Home decor which has clock attached to it</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Home Decor')">❤️ Add to Wishlist</button>
+
+    </div>
+    <div class="product"
+         data-name="Painting" 
+         data-price="10,300" 
+         data-image="https://i.etsystatic.com/26078676/r/il/6ac6bd/2929377575/il_570xN.2929377575_iqv9.jpg" 
+         data-description="Add this rare oil painting to our home to look more aesthetic">
+        <img src="https://i.etsystatic.com/26078676/r/il/6ac6bd/2929377575/il_570xN.2929377575_iqv9.jpg"
+alt="Paintings">
+        <h3>Antique Painting</h3>
+        <p>Old rare painting from 19th century, which is made of oil</p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Painting')">❤️ Add to Wishlist</button>
+
+    </div>
+            <div class="product"
+         data-name="Idol" 
+         data-price="2,336" 
+         data-image="https://vintagegulley.com/cdn/shop/products/DSC_4506_1200x.jpg?v=1659528764" 
+         data-description="Add this lord saraswathi to your home to look more trational and to have peace around you home">
+        <img src="https://vintagegulley.com/cdn/shop/products/DSC_4506_1200x.jpg?v=1659528764"
+alt="Paintings">
+        <h3>Lord Sarashwathi</h3>
+        <p>Antique Brass Idol which gives postive energy </p>
+        <button class="button" onclick="viewDetails(this)">View more details</button>
+        <button class="button" onclick="addToCart(this)">Add to Cart</button>
+        <button onclick="addToWishlist('Idol')">❤️ Add to Wishlist</button>
+
+    </div>
+
+</div> <!-- End of product container -->
+
+<!-- Wishlist Section -->
+<div style="margin-top: 40px;">
+    <h2>Your Wishlist ❤️</h2>
+    <ul id="wishlist" style="list-style-type: none; font-size: 18px;"></ul>
+</div>
+
+<script>
+  let wishlist = [];  // Array to hold wishlist items
+
+  // Function to add product to wishlist
+  function addToWishlist(item) {
+    if (!wishlist.includes(item)) {  // Check if it's not already in the wishlist
+      wishlist.push(item);  // Add item to the array
+
+      // Update the wishlist on the page
+      const list = document.getElementById("wishlist");
+      const li = document.createElement("li");
+      li.textContent = item;  // Display item name
+      list.appendChild(li);
+    } else {
+      alert(item + " is already in your wishlist!");  // Alert if the item is already in the wishlist
+    }
+  }
+</script>
+
+ <footer style="margin-top: 50px; padding: 20px; background-color: #a67c52; color: white;">
+    <h2>Contact Us</h2>
+    <p>Phone: 9489902678</p>
+    <p>Email: Kanthanantiqueproducts@gmail.com</p>
+</footer>
+    <ul id="cart"></ul>
+
+    <script>
+        
+         function goToCart() {
+                alert("Product added to cart!");
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push({
+                     name: "Vintage Clock", 
+                     price: 150,
+                     image: "https://www.homeartisan.in/cdn/shop/files/HAWC-2305_1_5e9a5a97-61a5-4180-9fe4-878425f1b657.jpg?v=1721646948",
+                     description: "Beautiful antique clock from the 19th century."
+                });
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                window.location.href = "cart.html";
+         }
+     </script>   
+<script>
+    function addToCart(button) {
+        const product = button.closest('.product');
+
+        const name = product.dataset.name;
+        const price = product.dataset.price;
+        const image = product.dataset.image;
+        const description = product.dataset.description;
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({ name, price, image, description });
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to cart!");
+    }
+</script>
+<script>
+function viewDetails(button) {
+    const productElement = button.closest(".product");
+
+    const product = {
+        name: productElement.dataset.name,
+        price: productElement.dataset.price,
+        image: productElement.dataset.image,
+        description: productElement.dataset.description
+    };
+
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    window.location.href = "details.html";
+}
+</script>
+<audio id="bg-music" autoplay loop>
+    <source src="background.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="music-btn">Pause Music</button>
+  
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+    const frame = document.getElementById("page-frame");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "Play Music";
+      }
+    });
+
+    function loadPage(page) {
+      frame.src = page;
+    }
+  </script>
+
+
+</body>
+</html>
